@@ -1,0 +1,25 @@
+FROM node:alpine
+RUN apk add curl
+RUN mkdir -p /opt/app
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /opt/app
+
+COPY package*.json /opt/app
+RUN yarn
+
+ENV NODE_ENV production
+ENV PORT 3000
+ENV NEXT_TELEMETRY_DISABLED=1
+
+EXPOSE 3000
+
+COPY . /opt/app
+
+RUN npm run build
+RUN addgroup -g 1001 -S nodejs
+RUN adduser -S nextjs -u 1001
+
+USER nextjs
+
+CMD [ "npm", "start" ]

@@ -1,0 +1,34 @@
+{
+  "Create icon": {
+    "scope": "typescriptreact",
+    "prefix": "Icon",
+    "body": [
+      "import React from 'react'",
+      "import { FC } from '~/utils/types'",
+      "",
+      "export const ${1:NameOfIcon}Icon: FC = ({ className = '' }) => (${2:SVGBody})"
+    ]
+  },
+  "Create component": {
+    "scope": "typescriptreact",
+    "prefix": "Component",
+    "body": [
+      "import React from 'react'",
+      "import styled from 'reshadow'",
+      "",
+      "import { FC } from '~/utils/types'",
+      "",
+      "export type ${1:Component}Props = {}",
+      "",
+      "export const ${1:Component}: FC<${1:Component}Props> = ({ className = '' }) => {",
+      "  return styled()`",
+      "    ${2:component-name} {",
+      "      ${3:display: flex;}",
+      "    }",
+      "  `(<${2:component-name} className={className}>",
+      "      $4",
+      "  </${2:component-name}>)",
+      "}"
+    ]
+  }
+}
