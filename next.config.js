@@ -1,6 +1,7 @@
 const withPrefresh = require('@prefresh/next')
+const withCSS = require('@zeit/next-css')
 
-const config = {
+let config = {
   experimental: {
     modern: true,
     polyfillsOptimization: true,
@@ -44,8 +45,24 @@ const config = {
         })
     }
 
+    /* reshadow */
+    if (process.env.NODE_ENV === 'production') {
+      config.module.rules.push({
+        enforce: 'post',
+        test: /\.tsx?$/,
+        loader: 'reshadow/webpack/loader',
+        options: {
+          modules: true,
+        },
+      })
+    }
+
     return config
   },
 }
 
-module.exports = withPrefresh(config)
+config = withPrefresh(config)
+
+if (process.env.NODE_ENV === 'production') config = withCSS(config)
+
+module.exports = config

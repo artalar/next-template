@@ -19,6 +19,10 @@ export default ({ Component, pageProps }: AppProps) => {
       list-style-type: none;
     }
 
+    :global(button), :global(a) {
+      cursor: pointer;
+    }
+
     app {
       width: 100vw;
       height: 100vh;
