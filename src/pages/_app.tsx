@@ -6,8 +6,9 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import { theme } from '~/utils/styles'
+import { FC } from '~/utils/types'
 
-export default ({ Component, pageProps }: AppProps) => {
+const App: FC<AppProps> = ({ Component, pageProps }) => {
   return styled()`
     :global(html) {
       font-family: 'Open Sans', sans-serif;
@@ -19,7 +20,8 @@ export default ({ Component, pageProps }: AppProps) => {
       list-style-type: none;
     }
 
-    :global(button), :global(a) {
+    :global(button),
+    :global(a) {
       cursor: pointer;
     }
 
@@ -47,3 +49,5 @@ export default ({ Component, pageProps }: AppProps) => {
     </app>,
   )
 }
+
+export default App
