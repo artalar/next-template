@@ -1,3 +1,7 @@
+/*
+ Based on https://github.com/developit/nextjs-preact-demo
+*/
+
 const withPrefresh = require('@prefresh/next')
 const withCSS = require('@zeit/next-css')
 
