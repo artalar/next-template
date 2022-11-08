@@ -21,7 +21,7 @@
   "dependencies": {
     "@types/react": "^16.9.46",
     "@types/react-dom": "^16.9.8",
-    "next": "^9.5.2",
+    "next": "^13.0.2",
     "normalize.css": "^8.0.1",
     "preact": "^10.4.7",
     "preact-render-to-string": "^5.1.10",
